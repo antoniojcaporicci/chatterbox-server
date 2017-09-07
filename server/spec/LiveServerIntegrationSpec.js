@@ -73,5 +73,24 @@ describe('server', function() {
     });
   });
 
+  //request should return object with object id as a key value pair.
+
+  it('Should respond with messages that contain object id\'s', function(done) {
+    var requestParams = {method: 'POST',
+      uri: 'http://127.0.0.1:3000/classes/messages',
+      json: {
+        username: 'Jono',
+        message: 'Do my bidding!'}
+    };
+
+    request(requestParams, function(error, response, body) {
+      request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+          var messages = JSON.parse(body).results;
+          expect(messages[0].objectId).to.a('string');
+          done();
+      });
+    });
+  });
+
 
 });

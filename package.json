@@ -31,5 +31,10 @@
     "presets": [
       "es2015"
     ]
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mime-types": "^2.1.17"
   }
 }
